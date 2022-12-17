@@ -1,0 +1,24 @@
+package TestCases;
+import java.time.Duration;
+
+import org.junit.Assert;
+import org.testng.annotations.Test;
+import BasePage.BaseClass;
+import Pages.Homepage;
+import Pages.LoginPage;
+public class Test_Homepage extends BaseClass
+{
+Homepage home_page;
+LoginPage login_page;
+@Test(priority=2)
+public void AddProducts() throws InterruptedException
+{
+driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+home_page=login_page.login("standard_user","secret_sauce");
+home_page.add_products();
+Thread.sleep(2000);
+String expectdURL="https://www.saucedemo.com/cart.html";
+String actualURL=driver.getCurrentUrl();
+Assert.assertEquals(actualURL, expectdURL);
+}
+}

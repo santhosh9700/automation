@@ -1,0 +1,18 @@
+package TestCases;
+
+import org.junit.Assert;
+import org.testng.annotations.Test;
+import BasePage.BaseClass;
+import Pages.Homepage;
+public class Test_Login extends BaseClass
+{
+Homepage home_page;
+@Test(priority=1)
+public void LoginTest()
+{
+home_page=login_page.login("standard_user","secret_sauce");
+String expectdURL="https://www.saucedemo.com/inventory.html";
+String actualURL=driver.getCurrentUrl();
+Assert.assertEquals(actualURL, expectdURL);
+}
+}

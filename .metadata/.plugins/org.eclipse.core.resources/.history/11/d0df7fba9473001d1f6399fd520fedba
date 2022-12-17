@@ -1,0 +1,23 @@
+package Pages;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import BasePage.BaseClass;
+
+public class Login extends BaseClass {
+	
+	@FindBy(id="user-name")
+	WebElement user;
+	@FindBy(name="password")
+	WebElement pwd;
+	@FindBy(id="login-button")
+	WebElement loginBtn;
+	
+	public BaseClass login() {
+		PageFactory.initElements(driver, this);
+		return new BaseClass();
+
+}
+}

@@ -1,0 +1,19 @@
+package TestCases;
+
+import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.Test;
+
+import BasePage.BaseClass;
+import Pages.Login;
+
+@Test
+public class Test_Login extends BaseClass {
+	user.sendKeys("standard_user");
+	pwd.sendKeys("secret_sauce");
+	loginBtn.click();
+	
+	public Login Test_Login() {
+		PageFactory.initElements(driver, this);
+		return new Login();
+}
+}
